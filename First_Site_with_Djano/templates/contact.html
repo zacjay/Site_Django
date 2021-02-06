@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<div class="container-fluid px-0">
+    <img src="https://source.unsplash.com/collection/connect/1200x400" class="d-block w-100 my-0" alt="...">
+</div>
+<div class="container mb-3">
+    <h1 class="text-center">Contact Us</h1>
+    <form class="row g-3 needs-validation" novalidate method="POST" action="/contact">
+    {% csrf_token %}
+        <div class="col-md-4 position-relative">
+            <label for="validationTooltip01" class="form-label">First name</label>
+            <input type="text" class="form-control" name="fname" id="validationTooltip01" value="" required>
+            <div class="valid-tooltip">
+                Looks good!
+            </div>
+        </div>
+        <div class="col-md-4 position-relative">
+            <label for="validationTooltip02" class="form-label">Last name</label>
+            <input type="text" class="form-control" name="lname" id="validationTooltip02" value="" required>
+            <div class="valid-tooltip">
+                Looks good!
+            </div>
+        </div>
+        <div class="col-md-4 position-relative">
+            <label for="validationTooltipUsername" class="form-label">Username</label>
+            <div class="input-group has-validation">
+                <span class="input-group-text" id="validationTooltipUsernamePrepend">@</span>
+                <input type="text" class="form-control" name="uname" id="validationTooltipUsername"
+                    aria-describedby="validationTooltipUsernamePrepend" required>
+                <div class="invalid-tooltip">
+                    Please choose a unique and valid username.
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-12">
+            <button class="btn btn-primary" type="submit">Submit form</button>
+        </div>
+    </form>
+</div>
+{% endblock body %}
